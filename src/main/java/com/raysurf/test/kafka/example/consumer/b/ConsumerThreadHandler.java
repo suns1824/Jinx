@@ -23,6 +23,7 @@ public class ConsumerThreadHandler<K, V> {
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.IntegerDeserializer");
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
         props.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, 1000);
+        props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         consumer = new KafkaConsumer<K, V>(props);
         consumer.subscribe(Collections.singletonList(topic), new ConsumerRebalanceListener() {
@@ -45,6 +46,7 @@ public class ConsumerThreadHandler<K, V> {
         try {
             ConsumerRecords<K, V> records = this.consumer.poll(1000L);
             if (!records.isEmpty()) {
+                System.out.println("offset: " + offsets);
                 excutors.submit(new ConsumerWorker<>(records, offsets));
             }
             commitOffsets();
