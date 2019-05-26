@@ -37,10 +37,10 @@ public class Producer extends Thread {
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer.class.getName());
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
-        List<String> interceptors = new ArrayList<>();
-        interceptors.add("com.raysurf.test.kafka.example.interceptor.TimeStampPrependInterceptro");
-        interceptors.add("com.raysurf.test.kafka.example.interceptor.CounterInterceptor");
-        props.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, interceptors);
+//        List<String> interceptors = new ArrayList<>();
+//        interceptors.add("com.raysurf.test.kafka.example.interceptor.TimeStampPrependerInterceptro");
+//        interceptors.add("com.raysurf.test.kafka.example.interceptor.CounterInterceptor");
+//        props.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, interceptors);
         producer = new KafkaProducer<>(props);
         this.topic = topic;
         this.isAsync = isAsync;

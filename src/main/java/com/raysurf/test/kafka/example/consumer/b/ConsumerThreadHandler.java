@@ -22,7 +22,7 @@ public class ConsumerThreadHandler<K, V> {
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "DemoConsumer3");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.IntegerDeserializer");
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
-        props.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, false);
+        props.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, 1000);
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         consumer = new KafkaConsumer<K, V>(props);
         consumer.subscribe(Collections.singletonList(topic), new ConsumerRebalanceListener() {

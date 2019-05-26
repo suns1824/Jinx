@@ -1,3 +1,5 @@
 Looper初始化调用initActions方法，在其中调用AbstractHttpConsumer类的fetch，process，submitCommandEvent和submitMessageEvent，ack方法。   
 这些又调用了Command类中的execute方法。  
 Action的execute方法调用数据监控消息方法。  
+
+

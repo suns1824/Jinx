@@ -4,7 +4,7 @@ import com.raysurf.test.kafka.example.KafkaProperties;
 
 public class Main {
     public static void main(String[] args) {
-        final ConsumerThreadHandler<Integer, String> handler = new ConsumerThreadHandler<>(KafkaProperties.SERVER, "DemoConsumer3", KafkaProperties.TOPIC3);
+        final ConsumerThreadHandler<Integer, String> handler = new ConsumerThreadHandler<>(KafkaProperties.SERVER, "DemoConsumer3", KafkaProperties.TOPIC);
         new Thread(new Runnable() {
             @Override
             public void run() {
