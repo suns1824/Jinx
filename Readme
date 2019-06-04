@@ -1,0 +1,2 @@
+Jinx是对kafka客户端的简化设计，使用了dropwizard，待完善，代码在client包下。后来建了一个test包，下面主要为平时Kafka的应用开发编码，不想单独再建立一个工程了，如果Jinx
+最终测试完ok，会将test包移掉。
